@@ -263,7 +263,7 @@ export default function WealthLadderShadow() {
         {/* ── Header ── */}
         <div style={{ textAlign: "center", padding: "48px 0 28px", borderBottom: `0.5px solid ${BRD}`, marginBottom: 28 }}>
           <div style={{ fontFamily: "monospace", fontSize: 11, letterSpacing: 6, color: TX3, textTransform: "uppercase", marginBottom: 12 }}>
-            The Wealth Ladder — Shadow Edition
+            The Wealth Ladder
           </div>
           <h1 style={{ fontSize: "clamp(26px,5vw,46px)", fontWeight: 300, color: TX1, lineHeight: 1.15, margin: 0 }}>
             From{" "}
@@ -282,11 +282,11 @@ export default function WealthLadderShadow() {
             const isActive = current === i;
             return (
               <span key={i}>
-                {i === firstShadowIdx && (
+                {/* {i === firstShadowIdx && (
                   <div style={{ width: "100%", textAlign: "center", fontFamily: "monospace", fontSize: 10, letterSpacing: 5, color: TX3, padding: "8px 0 6px" }}>
                     — beyond the scoreboard —
                   </div>
-                )}
+                )} */}
                 <button
                   onClick={() => setCurrent(i)}
                   style={{
@@ -413,6 +413,26 @@ export default function WealthLadderShadow() {
 
         <div style={{ textAlign: "center", marginTop: 32, fontFamily: "monospace", fontSize: 10, letterSpacing: 4, color: TX3 }}>
           WEALTH IS RELATIVE · POWER IS STRUCTURAL · TRUTH IS BORING
+        </div>
+        <div style={{ textAlign: "center", marginTop: 12, fontFamily: "monospace", fontSize: 9, letterSpacing: 2, color: TX3 }}>
+          Presented by{" "}
+          <a
+            href="https://brahmpreet.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: level.accent,
+              textDecoration: "none",
+              borderBottom: `1px solid ${level.accent}66`,
+              paddingBottom: 1,
+              transition: "opacity 0.18s",
+            }}
+            onMouseEnter={e => e.target.style.opacity = 0.7}
+            onMouseLeave={e => e.target.style.opacity = 1}
+          >
+            Brahmpreet Singh
+          </a>
+          {" "}© 2025 All Rights Reserved
         </div>
       </div>
     </div>
