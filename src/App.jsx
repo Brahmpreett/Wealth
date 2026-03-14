@@ -3,469 +3,861 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-
 const levels = [
   {
     id: 0,
-    amount: "$1",
-    raw: 1,
+    amount: "$1/day",
     name: "The Survivor",
     emoji: "🪙",
-    color: "#8B4513",
-    bg: "#2A1A0A",
-    method: "Collect & return recyclable bottles/cans, beg, do a micro-task on TaskRabbit, or sell a found item.",
+    accentHex: "#8B6914",
+    method:
+      "Collect recyclable bottles and cans, do micro-tasks on TaskRabbit, beg, or sell a found item.",
     pros: ["Zero capital needed", "Immediate cash", "No skills required"],
-    cons: ["Physically demanding", "Socially stigmatized", "Unpredictable income"],
-    percentile: "Bottom 1%",
-    professions: ["Street vendor", "Scrap collector", "Day laborer", "Beggar"],
-    examples: ["Unnamed millions in developing nations", "Homeless individuals in urban areas"],
+    cons: [
+      "Physically demanding",
+      "Socially stigmatised",
+      "Unpredictable income",
+    ],
+    percentile: "Bottom 1% globally",
+    professions: "Street vendor, scrap collector, day laborer, beggar",
+    examples:
+      "Homeless individuals in urban areas; informal workers in developing nations",
     life: "Survival mode. Every dollar goes toward food or shelter. No savings, no bank account, no safety net. Life is a daily grind of finding the next meal.",
     dailyIncome: "$0–$5/day",
-    networth: "Near $0",
+    networth: "~$0",
+    shadow: false,
   },
   {
     id: 1,
-    amount: "$10",
-    raw: 10,
+    amount: "$10/day",
     name: "The Hustler",
     emoji: "🔧",
-    color: "#A0522D",
-    bg: "#1A100A",
-    method: "Offer a simple service locally — mow a lawn, wash a car, do laundry, or sell homemade food at a corner.",
+    accentHex: "#A0522D",
+    method:
+      "Offer simple local services — mow a lawn, wash cars, sell homemade food, or assist with moving.",
     pros: ["Low barrier to entry", "Can start today", "Builds work ethic"],
-    cons: ["Time-intensive for small return", "Weather/location dependent", "Hard to scale"],
-    percentile: "Bottom 5–10%",
-    professions: ["Gig worker", "Street food seller", "Domestic helper", "Car washer"],
-    examples: ["Informal economy workers across South Asia, Africa, Latin America"],
-    life: "Living paycheck to paycheck. Likely sharing housing. No healthcare. Small joys are big wins. Community is a lifeline.",
+    cons: [
+      "Time-intensive for small return",
+      "Weather & location dependent",
+      "Nearly impossible to scale",
+    ],
+    percentile: "Bottom 5–10% globally",
+    professions: "Gig worker, street food seller, domestic helper, car washer",
+    examples:
+      "Informal economy workers across South Asia, Africa, Latin America",
+    life: "Living paycheck to paycheck. Sharing housing. No healthcare. Small joys are big wins. Community is a lifeline.",
     dailyIncome: "$5–$30/day",
     networth: "$0–$500",
+    shadow: false,
   },
   {
     id: 2,
-    amount: "$100",
-    raw: 100,
+    amount: "$100/day",
     name: "The Grinder",
     emoji: "🛠️",
-    color: "#CD853F",
-    bg: "#150F05",
-    method: "Flip an item on Facebook Marketplace or eBay (buy low, sell high), or do skilled freelance work for one client (writing, design, repair).",
-    pros: ["Scalable with practice", "Builds market intuition", "Can work from phone"],
-    cons: ["Requires some starting capital or skill", "Competitive market", "Time still trades for money"],
-    percentile: "Bottom 20–30%",
-    professions: ["Freelancer", "Reseller", "Skilled tradesperson", "Delivery driver"],
-    examples: ["Most gig economy workers", "Entry-level freelancers in developing countries"],
-    life: "Renting a room or modest apartment. Owns a phone and maybe a bike or old car. Eating decent food, some small luxuries. Stressed about expenses.",
+    accentHex: "#8B5E00",
+    method:
+      "Flip items on Facebook Marketplace or eBay (buy low, sell high), or do basic skilled freelance work — writing, design, repairs.",
+    pros: [
+      "Scalable with practice",
+      "Builds market intuition",
+      "Can operate from a phone",
+    ],
+    cons: [
+      "Needs some starting capital or skill",
+      "Competitive market",
+      "Time directly trades for money",
+    ],
+    percentile: "Bottom 20–30% globally",
+    professions: "Freelancer, reseller, skilled tradesperson, delivery driver",
+    examples:
+      "Most gig economy workers; entry-level freelancers in developing countries",
+    life: "Renting a room or modest apartment. Owns a phone, maybe a bike. Eating decent food with a few small luxuries. Always stressed about expenses.",
     dailyIncome: "$30–$150/day",
-    networth: "$500–$10,000",
+    networth: "$500–$10K",
+    shadow: false,
   },
   {
     id: 3,
-    amount: "$1,000",
-    raw: 1000,
+    amount: "$1,000/day",
     name: "The Operator",
     emoji: "💼",
-    color: "#DAA520",
-    bg: "#120E02",
-    method: "Run a high-ticket freelance project (web dev, consulting, video production) or flip a vehicle/electronics with a good margin.",
-    pros: ["Meaningful daily income", "Skill-based moat", "Can be done remotely"],
-    cons: ["Requires developed skill or capital", "Client dependency", "Inconsistent without pipeline"],
-    percentile: "Top 40–50% globally, bottom 40% in developed nations",
-    professions: ["Consultant", "Skilled contractor", "Small business owner", "Senior freelancer"],
-    examples: ["Average American worker", "Mid-level tech worker in India", "Small restaurant owner"],
-    life: "Renting a decent apartment. Owns a car. Can afford vacations once a year. Some savings. Stress is about career growth, not survival.",
+    accentHex: "#2E5E8E",
+    method:
+      "Land a high-ticket freelance project — web development, consulting, video production — or flip a vehicle or electronics at a strong margin.",
+    pros: [
+      "Meaningful daily income",
+      "Skill-based competitive moat",
+      "Remote-friendly",
+    ],
+    cons: [
+      "Requires a developed skill or capital",
+      "Client dependency",
+      "Income is inconsistent without a pipeline",
+    ],
+    percentile: "Top 40–50% globally; bottom 40% in developed nations",
+    professions:
+      "Consultant, skilled contractor, small business owner, senior freelancer",
+    examples:
+      "Average American white-collar worker, mid-level tech worker in India, small restaurant owner",
+    life: "Renting a decent apartment. Owns a car. Can afford one vacation a year. Some savings. Stress is about career growth, not survival.",
     dailyIncome: "$150–$500/day",
     networth: "$10K–$100K",
+    shadow: false,
   },
   {
     id: 4,
-    amount: "$10,000",
-    raw: 10000,
+    amount: "$10,000/day",
     name: "The Professional",
     emoji: "📈",
-    color: "#C0C0C0",
-    bg: "#0D0D12",
-    method: "Close a high-value sales deal, trade options/crypto with significant capital, or deliver a high-stakes consulting engagement.",
-    pros: ["Elite earning tier", "Strong professional network", "Compounding opportunities"],
-    cons: ["High pressure and stress", "Long ramp-up to reach this level", "Requires significant expertise or capital"],
+    accentHex: "#1A5E3A",
+    method:
+      "Close a high-value sales deal, trade options or crypto with significant capital, or deliver a high-stakes consulting engagement.",
+    pros: [
+      "Elite earning tier",
+      "Strong professional network",
+      "Opportunities that compound",
+    ],
+    cons: [
+      "High pressure and stress",
+      "Years of ramp-up required",
+      "Needs significant expertise or capital",
+    ],
     percentile: "Top 5–15% in developed nations",
-    professions: ["Investment banker", "Surgeon", "Successful entrepreneur", "High-ticket realtor"],
-    examples: ["Wall Street analysts", "Senior lawyers", "Successful agency owners"],
-    life: "Owns a nice home. Drives a BMW or Tesla. Private schools for kids. Vacations in Europe. Some anxiety about maintaining lifestyle.",
+    professions:
+      "Investment banker, surgeon, successful entrepreneur, high-ticket realtor",
+    examples: "Wall Street analysts, senior lawyers, successful agency founders",
+    life: "Owns a nice home. Drives a BMW or Tesla. Private school for kids. European vacations. Anxiety about maintaining the lifestyle.",
     dailyIncome: "$1K–$5K/day",
     networth: "$100K–$1M",
+    shadow: false,
   },
   {
     id: 5,
-    amount: "$100,000",
-    raw: 100000,
+    amount: "$100,000/day",
     name: "The Elite",
     emoji: "🏆",
-    color: "#FFD700",
-    bg: "#0A0A08",
-    method: "Secure a large M&A deal fee, have a major stock position move favorably, or close a real estate transaction on a luxury property.",
-    pros: ["Life-changing single-day gain", "Wealth compounds at this level", "Access to exclusive networks"],
-    cons: ["Requires being already wealthy or deeply connected", "High risk exposure", "Rare for most mortals"],
+    accentHex: "#7B5EA7",
+    method:
+      "Secure a large M&A advisory fee, have a major stock position move favorably, or close a transaction on a luxury real estate portfolio.",
+    pros: [
+      "Life-changing single-day gain",
+      "Wealth begins to compound aggressively",
+      "Access to exclusive networks",
+    ],
+    cons: [
+      "Requires being already wealthy or deeply connected",
+      "High risk exposure",
+      "Rare event — even for top earners",
+    ],
     percentile: "Top 1–2% globally",
-    professions: ["Hedge fund manager", "Tech executive", "Private equity partner", "Celebrity"],
-    examples: ["Mid-level VCs", "Startup founders post-funding", "Top 1% earners"],
-    life: "Multiple properties. Business class flights. Kids in elite universities. Philanthropy starts here. Money is no longer a daily concern.",
+    professions:
+      "Hedge fund manager, tech executive, private equity partner, celebrity",
+    examples: "Mid-tier VCs, startup founders post-Series B, top 1% earners",
+    life: "Multiple properties. Business class as standard. Kids in elite universities. Philanthropy begins. Money is no longer a daily concern.",
     dailyIncome: "$5K–$50K/day",
     networth: "$1M–$10M",
+    shadow: false,
   },
   {
     id: 6,
-    amount: "$1,000,000",
-    raw: 1000000,
+    amount: "$1,000,000/day",
     name: "The Mogul",
     emoji: "🚀",
-    color: "#00CED1",
-    bg: "#020D0D",
-    method: "Execute a startup exit, have a major equity stake acquired, or benefit from a significant market-moving event on a large leveraged position.",
-    pros: ["Generational wealth potential", "Complete financial freedom", "Influence and access"],
-    cons: ["Extremely rare event", "Needs years of groundwork", "Tax complexity, legal overhead"],
+    accentHex: "#006080",
+    method:
+      "Execute a startup exit, have a major equity stake acquired, or benefit from a significant market-moving event on a large leveraged position.",
+    pros: [
+      "Generational wealth potential",
+      "Complete financial freedom",
+      "Influence and access at the highest levels",
+    ],
+    cons: [
+      "Extremely rare — needs years of groundwork",
+      "Tax complexity and legal overhead",
+      "Requires being in the right circle",
+    ],
     percentile: "Top 0.1%",
-    professions: ["Startup founder", "Major investor", "C-suite executive", "Entertainer/Athlete"],
-    examples: ["Series B founders", "Top hedge fund traders", "Mid-tier celebrities"],
+    professions:
+      "Startup founder, major investor, C-suite executive, top entertainer or athlete",
+    examples:
+      "Series B/C founders at exit, top hedge fund traders, mid-tier celebrities",
     life: "Private jets occasionally. Multiple luxury homes. Art collections. Staff and assistants. Invited to Davos. Identity shifts from earner to builder.",
     dailyIncome: "$50K–$500K/day",
     networth: "$10M–$100M",
+    shadow: false,
   },
   {
     id: 7,
-    amount: "$10,000,000",
-    raw: 10000000,
+    amount: "$10,000,000/day",
     name: "The Titan",
     emoji: "🌐",
-    color: "#7B68EE",
-    bg: "#05020F",
-    method: "IPO of your company, major acquisition exit, or a blockbuster entertainment deal (film, music, sports contract).",
-    pros: ["Dynastic wealth", "Can fund entire movements", "Legacy-level impact"],
-    cons: ["Takes years/decades to build", "Target for lawsuits and attention", "Isolation from 'normal' life"],
+    accentHex: "#8B2000",
+    method:
+      "IPO of your company, major acquisition exit, or a blockbuster deal in entertainment, sports, or media.",
+    pros: [
+      "Dynastic wealth",
+      "Can fund industries or movements",
+      "Legacy-level historical impact",
+    ],
+    cons: [
+      "Takes decades to build to this point",
+      "Target for lawsuits and public attention",
+      "Increasing isolation from ordinary life",
+    ],
     percentile: "Top 0.01%",
-    professions: ["Tech founder", "Sports superstar", "Billionaire's lieutenant", "Top VC partner"],
-    examples: ["Instagram founders at acquisition", "Top NBA players", "Country-level entrepreneurs"],
-    life: "Private jets are standard. Security detail. Yachts. Charity foundations. Your children's children won't need to work. Life is curated.",
+    professions:
+      "Tech founder, sports superstar, billionaire lieutenant, top VC partner",
+    examples:
+      "Instagram founders at acquisition, top NBA players, country-level entrepreneurs",
+    life: "Private jets are standard. Security detail. Yachts. Charity foundations. Your grandchildren will never need to work. Life is fully curated.",
     dailyIncome: "$500K–$5M/day",
     networth: "$100M–$1B",
+    shadow: false,
   },
   {
     id: 8,
-    amount: "$100,000,000",
-    raw: 100000000,
+    amount: "$100,000,000/day",
     name: "The Oligarch",
     emoji: "🏰",
-    color: "#FF6B35",
-    bg: "#0F0500",
-    method: "Your company's stock surges on a major product launch, regulatory win, or market event. A single percentage point on a $10B company = $100M.",
-    pros: ["Economy-scale influence", "Political access", "Perpetual wealth machine"],
-    cons: ["Constant public scrutiny", "Political and legal threats", "Relationships become transactional"],
+    accentHex: "#4A0080",
+    method:
+      "Your company's stock surges on a major product launch, regulatory win, or market event. A single percentage point on a $10B company = $100M.",
+    pros: [
+      "Economy-scale influence",
+      "Political access at the highest levels",
+      "A self-perpetuating wealth machine",
+    ],
+    cons: [
+      "Constant public scrutiny",
+      "Political and legal threats from governments",
+      "All relationships become transactional",
+    ],
     percentile: "Top 0.001% — fewer than 100,000 people globally",
-    professions: ["Major tech CEO", "Media mogul", "Resource billionaire", "Finance titan"],
-    examples: ["Regional billionaires", "Fortune 500 CEOs", "Inherited wealth dynasties"],
-    life: "Private islands. Political influence. Your phone call gets answered by world leaders. Art as investment. Meaning becomes the new currency.",
+    professions:
+      "Major tech CEO, media mogul, resource billionaire, finance titan",
+    examples:
+      "Regional billionaires, Fortune 500 CEOs, inherited wealth dynasties",
+    life: "Private islands. Political influence. World leaders return your calls. Art as investment vehicle. Meaning becomes the new currency.",
     dailyIncome: "$5M–$50M/day",
     networth: "$1B–$10B",
+    shadow: false,
   },
   {
     id: 9,
-    amount: "$1,000,000,000",
-    raw: 1000000000,
+    amount: "$1,000,000,000/day",
     name: "The God-Mode",
     emoji: "🌌",
-    color: "#FF2D55",
-    bg: "#0F0005",
-    method: "Tesla stock rises 1% on a single day. At $200B+ net worth, that's $2B in a day. Elon Musk has gained/lost $10B+ in single days via equity moves.",
-    pros: ["Reshape civilization", "Fund space programs, cure diseases", "Literally own the news cycle"],
-    cons: ["Target of governments", "No privacy whatsoever", "Wealth becomes abstract and meaningless"],
+    accentHex: "#1A1A5E",
+    method:
+      "Tesla stock rises 1% in a single trading session. At $200B+ net worth, that's $2B in a day. Elon Musk has gained or lost $10B+ in a single session from equity moves alone.",
+    pros: [
+      "Reshape entire civilisations",
+      "Can fund space programs or eradicate diseases",
+      "You are the news cycle",
+    ],
+    cons: [
+      "Target of governments worldwide",
+      "Zero privacy, zero normal life",
+      "Wealth becomes completely abstract — a number, not a reality",
+    ],
     percentile: "Top 0.000001% — ~2,800 people on Earth",
-    professions: ["Founder of civilization-scale companies", "Generational tech visionary", "Resource monopolist"],
-    examples: ["Elon Musk", "Jeff Bezos", "Bernard Arnault", "Mark Zuckerberg"],
-    life: "You don't live life — you architect it. Buy Twitter for sport. Launch rockets for fun. Governments negotiate with you. Money is just a scoreboard.",
+    professions:
+      "Founder of civilisation-scale companies, generational tech visionary, resource monopolist",
+    examples: "Elon Musk, Jeff Bezos, Bernard Arnault, Mark Zuckerberg",
+    life: "You don't live life — you architect it. Buy platforms for sport. Launch rockets for fun. Governments negotiate with you. Money is just a scoreboard now.",
     dailyIncome: "$50M–$5B/day",
     networth: "$100B+",
+    shadow: false,
+  },
+  {
+    id: 10,
+    amount: "Immeasurable",
+    name: "The Architecture",
+    emoji: "🏛️",
+    accentHex: "#5A3000",
+    shadowLabel: "SHADOW TIER I",
+    method:
+      "BlackRock, Vanguard and State Street — the 'Big Three' — collectively manage over $24 trillion in assets (2025). They are the largest shareholders in ~88% of S&P 500 companies simultaneously. Their daily 'gain' isn't measured in dollars but in systemic influence: every board vote across Apple, Microsoft, ExxonMobil, JPMorgan, and 500 others. They don't own the money — they wield it on behalf of millions of ordinary investors, which makes them simultaneously accountable to everyone and to no one.",
+    pros: [
+      "Control corporate governance at civilisational scale",
+      "Simultaneously invested in competing companies — no one can win without them",
+      "Quiet power: no single person to blame or unseat",
+    ],
+    cons: [
+      "Owned by the public — theoretically answerable to fund shareholders",
+      "Massive regulatory and antitrust exposure growing globally",
+      "Power is structural, not personal — hard to 'use' directly",
+    ],
+    percentile: "3 institutions. Not on any wealth percentile chart.",
+    professions:
+      "Asset management executive, index fund architect, institutional steward",
+    examples:
+      "Larry Fink (BlackRock CEO), Salim Ramji (Vanguard CEO), Ron O'Hanley (State Street CEO)",
+    life: "These are institutions, not individuals. The CEOs earn $10M–$30M/year — wealthy, but not billionaires. The true power is structural: they sit on every board, vote on every CEO, influence every major corporate policy — quietly, legally, continuously.",
+    dailyIncome: "N/A — influence, not income",
+    networth: "$24T+ AUM (not owned; managed)",
+    shadow: true,
+    factNote:
+      "VERIFIED FACT: BlackRock, Vanguard and State Street are the top 3 institutional shareholders in 88% of S&P 500 companies (Harvard Business Review, 2019). Combined AUM exceeds $24 trillion as of 2025.",
+  },
+  {
+    id: 11,
+    amount: "Centuries old",
+    name: "The Dynasty",
+    emoji: "⚜️",
+    accentHex: "#3D0000",
+    shadowLabel: "SHADOW TIER II",
+    method:
+      "The Rothschilds built the first truly international banking network in the early 1800s — five sons, five European capitals, one family cipher. They financed Wellington at Waterloo, funded post-revolutionary France, and bankrolled the Suez Canal purchase. Their model: never own the economy — finance it. Today Rothschild & Co operates as a top global advisory bank. The Rockefellers perfected the dynasty trust in 1952, locking wealth across generations via charitable foundations that also wield enormous soft power over universities, hospitals, and policy think-tanks.",
+    pros: [
+      "Wealth preserved across 6–10 generations via trusts and foundations",
+      "Influence embedded in institutions — universities, museums, central banks",
+      "They wrote the playbook everyone else follows",
+    ],
+    cons: [
+      "Fortune has been diluted across hundreds of descendants",
+      "Public scrutiny and conspiracy mythology follows the name",
+      "Peak influence was the 19th century — modern power has shifted",
+    ],
+    percentile:
+      "Historically uncategorisable. Today: ultra-wealthy family offices, not dominant world powers.",
+    professions:
+      "Private banker, foundation trustee, advisory firm partner, estate manager",
+    examples:
+      "Rothschild & Co (Paris/London), Rockefeller Brothers Fund, Edmond de Rothschild Group (Geneva)",
+    life: "Old money does not show. No flashy yachts, no Twitter presence. Dinners with central bank governors, seats on museum boards, quiet stakes in private equity. Influence maintained not by spending, but by being indispensable to institutions that outlast any individual.",
+    dailyIncome:
+      "Private. Rothschilds ~$400B–$1.2T (disputed), Rockefellers ~$10B collective",
+    networth: "Deliberately opaque",
+    shadow: true,
+    factNote:
+      "FACT/ESTIMATE: Rothschild family collective wealth is widely estimated at $400B+ with some sources citing up to $1.2T, though this is unverified due to private structures. Rockefeller collective is ~$10.3B per Forbes. Their real power today is institutional, not liquid.",
+  },
+  {
+    id: 12,
+    amount: "Unknown",
+    name: "The Unnamed",
+    emoji: "👁️",
+    accentHex: "#1a1a2e",
+    shadowLabel: "SHADOW TIER III",
+    method:
+      "This is where documented fact ends and structural reality begins. Vanguard is owned by its own funds — which are owned by its investors — creating a recursive loop with no single human owner. The 'Big Three' themselves own each other: Vanguard is the largest shareholder of BlackRock; BlackRock is a top shareholder of State Street. Who ultimately controls Vanguard? Tens of millions of ordinary pension holders — teachers, nurses, retirees — who have no idea they 'own' the world's most powerful asset manager. Power at this level is not held by a person. It is a self-sustaining system.",
+    pros: [
+      "No single point of failure — no one person can be removed",
+      "Accountability is so diffuse it is functionally zero",
+      "The system perpetuates itself regardless of who runs it",
+    ],
+    cons: [
+      "This is the conspiracy theorist's nightmare: the answer is boring — it's pension funds",
+      "No villain, no secret room, no shadowy cabal to expose",
+      "The real power is emergent, not intentional — and therefore impossible to reform easily",
+    ],
+    percentile: "This tier has no inhabitants. It is a structure, not a person.",
+    professions: "Does not apply. This is systemic, not individual.",
+    examples:
+      "The recursive ownership loop: Vanguard funds → own Vanguard → own BlackRock → own State Street → own Vanguard funds. The snake eating its own tail.",
+    life: "There is no 'life at this level' because no single human being occupies it. The terrifying and anti-climactic truth: the entity that most influences global capital allocation is owned by ordinary people who invest in index funds, managed by salaried executives who report to boards, regulated (loosely) by governments. The shadow is cast by everyone — and therefore by no one.",
+    dailyIncome: "The system manages ~$24T in assets daily",
+    networth: "Systemic, not personal",
+    shadow: true,
+    factNote:
+      "VERIFIED: Vanguard's unique mutual ownership structure is confirmed on their own corporate site and by the SEC. The cross-ownership loop is documented in public filings. This is not conspiracy — it is legal, public, and structurally bizarre.",
   },
 ];
 
-export default function WealthLevels() {
-  const [selected, setSelected] = useState(0);
-  const level = levels[selected];
+const styles = {
+  root: {
+    fontFamily: "'Georgia', 'Times New Roman', serif",
+    background: "#060608",
+    minHeight: "100vh",
+    color: "#E8E0D0",
+  },
+  wrap: {
+    maxWidth: 880,
+    margin: "0 auto",
+    padding: "0 20px 80px",
+  },
+  header: {
+    textAlign: "center",
+    padding: "48px 0 28px",
+    borderBottom: "0.5px solid #1a1a1a",
+    marginBottom: 28,
+  },
+  supertitle: {
+    fontSize: 11,
+    letterSpacing: 6,
+    color: "#444",
+    fontFamily: "monospace",
+    textTransform: "uppercase",
+    marginBottom: 12,
+  },
+  mainTitle: {
+    fontSize: "clamp(26px, 5vw, 46px)",
+    fontWeight: 300,
+    color: "#F0E8D8",
+    lineHeight: 1.15,
+    margin: 0,
+  },
+  subtitle: {
+    fontSize: 13,
+    color: "#444",
+    marginTop: 8,
+    fontFamily: "monospace",
+    letterSpacing: 2,
+  },
+};
 
+function NavButton({ level, isSelected, onClick, isShadow }) {
+  const label =
+    level.amount === "Immeasurable" ||
+    level.amount === "Centuries old" ||
+    level.amount === "Unknown"
+      ? `${level.emoji} ${level.name}`
+      : level.amount;
   return (
-    <div style={{
-      fontFamily: "'Georgia', serif",
-      background: "#060608",
-      minHeight: "100vh",
-      color: "#E8E0D0",
-      display: "flex",
-      flexDirection: "column",
-    }}>
-      {/* Header */}
-      <div style={{
-        textAlign: "center",
-        padding: "48px 24px 24px",
-        borderBottom: "1px solid #1a1a1a",
-      }}>
-        <div style={{
-          fontSize: "11px",
-          letterSpacing: "6px",
-          color: "#555",
-          textTransform: "uppercase",
-          marginBottom: "12px",
-        }}>The Wealth Ladder</div>
-        <h1 style={{
-          fontSize: "clamp(28px, 5vw, 52px)",
-          fontWeight: "300",
-          letterSpacing: "-1px",
-          margin: 0,
-          color: "#F0E8D8",
-        }}>How to Gain <span style={{ color: level.color, transition: "color 0.4s" }}>Wealth</span> in a Day</h1>
-        <p style={{ color: "#555", marginTop: "8px", fontSize: "14px" }}>From beggar to billionaire — 10 levels of daily net worth gain</p>
-      </div>
+    <button
+      onClick={onClick}
+      style={{
+        fontFamily: "monospace",
+        fontSize: 11,
+        letterSpacing: 1,
+        padding: "5px 11px",
+        borderRadius: 4,
+        cursor: "pointer",
+        border: `0.5px solid ${level.accentHex}88`,
+        color: isSelected ? "#000" : level.accentHex,
+        background: isSelected ? level.accentHex : "transparent",
+        opacity: isSelected ? 1 : 0.6,
+        fontStyle: isShadow ? "italic" : "normal",
+        transition: "all 0.2s",
+      }}
+    >
+      {label}
+    </button>
+  );
+}
 
-      {/* Level Selector */}
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        gap: "6px",
-        padding: "20px 16px",
-        flexWrap: "wrap",
-        borderBottom: "1px solid #111",
-      }}>
-        {levels.map((l, i) => (
-          <button
-            key={i}
-            onClick={() => setSelected(i)}
+function ProConList({ items, type }) {
+  const isPos = type === "pros";
+  return (
+    <div
+      style={{
+        background: "#0a0a0a",
+        borderRadius: 8,
+        padding: 16,
+        border: "0.5px solid #1a1a1a",
+        borderTop: `2px solid ${isPos ? "#4CAF50" : "#E53935"}`,
+      }}
+    >
+      <div
+        style={{
+          fontFamily: "monospace",
+          fontSize: 10,
+          letterSpacing: 3,
+          color: isPos ? "#4CAF50" : "#E53935",
+          textTransform: "uppercase",
+          marginBottom: 10,
+        }}
+      >
+        {isPos ? "Pros" : "Cons"}
+      </div>
+      {items.map((item, i) => (
+        <div
+          key={i}
+          style={{
+            display: "flex",
+            gap: 8,
+            marginBottom: 7,
+            fontSize: 13,
+            lineHeight: 1.55,
+            color: "#999",
+            fontFamily: "monospace",
+          }}
+        >
+          <span
             style={{
-              background: selected === i ? l.color : "transparent",
-              color: selected === i ? "#000" : l.color,
-              border: `1px solid ${l.color}`,
-              borderRadius: "4px",
-              padding: "6px 12px",
-              fontSize: "12px",
-              fontFamily: "monospace",
-              cursor: "pointer",
-              transition: "all 0.2s",
-              opacity: selected === i ? 1 : 0.5,
+              color: isPos ? "#4CAF50" : "#E53935",
+              fontSize: 10,
+              marginTop: 3,
+              flexShrink: 0,
             }}
           >
-            {l.amount}
-          </button>
-        ))}
-      </div>
+            {isPos ? "▲" : "▼"}
+          </span>
+          <span>{item}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
-      {/* Main Content */}
-      <div style={{
-        flex: 1,
-        maxWidth: "900px",
-        margin: "0 auto",
-        width: "100%",
-        padding: "40px 24px",
-      }}>
-        {/* Title Card */}
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "20px",
-          marginBottom: "36px",
-          padding: "28px",
-          background: `linear-gradient(135deg, ${level.bg}, #0a0a0a)`,
-          border: `1px solid ${level.color}22`,
-          borderRadius: "12px",
-        }}>
-          <div style={{ fontSize: "52px" }}>{level.emoji}</div>
-          <div>
-            <div style={{
-              fontSize: "11px",
-              letterSpacing: "5px",
-              color: level.color,
-              textTransform: "uppercase",
-              marginBottom: "6px",
-            }}>Level {selected + 1} · {level.percentile}</div>
-            <div style={{
-              fontSize: "clamp(22px, 4vw, 36px)",
-              fontWeight: "300",
-              color: "#F0E8D8",
-              letterSpacing: "-0.5px",
-            }}>{level.name}</div>
-            <div style={{
-              display: "flex",
-              gap: "20px",
-              marginTop: "8px",
-              fontSize: "13px",
-              color: "#666",
-            }}>
-              <span>Daily gain: <span style={{ color: level.color }}>{level.amount}</span></span>
-              <span>Income range: <span style={{ color: "#aaa" }}>{level.dailyIncome}</span></span>
-              <span>Net worth: <span style={{ color: "#aaa" }}>{level.networth}</span></span>
+function InfoBox({ label, content, accent }) {
+  return (
+    <div
+      style={{
+        background: "#0a0a0a",
+        borderRadius: 8,
+        padding: 16,
+        border: "0.5px solid #1a1a1a",
+      }}
+    >
+      <div
+        style={{
+          fontFamily: "monospace",
+          fontSize: 10,
+          letterSpacing: 4,
+          color: accent,
+          textTransform: "uppercase",
+          marginBottom: 8,
+        }}
+      >
+        {label}
+      </div>
+      <div
+        style={{
+          fontSize: 13,
+          color: "#888",
+          fontFamily: "monospace",
+          lineHeight: 1.6,
+        }}
+      >
+        {content}
+      </div>
+    </div>
+  );
+}
+
+export default function WealthLadderShadow() {
+  const [current, setCurrent] = useState(0);
+  const level = levels[current];
+
+  const firstShadowIdx = levels.findIndex((l) => l.shadow);
+
+  return (
+    <div style={styles.root}>
+      <div style={styles.wrap}>
+        {/* Header */}
+        <div style={styles.header}>
+          <div style={styles.supertitle}>The Wealth Ladder — Shadow Edition</div>
+          <h1 style={styles.mainTitle}>
+            From{" "}
+            <span style={{ fontStyle: "italic", color: level.accentHex }}>
+              survival
+            </span>{" "}
+            to{" "}
+            <span style={{ fontStyle: "italic", color: level.accentHex }}>
+              shadow
+            </span>
+          </h1>
+          <div style={styles.subtitle}>
+            13 levels · Beggar to the hand behind the hand
+          </div>
+        </div>
+
+        {/* Nav */}
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 6,
+            justifyContent: "center",
+            marginBottom: 28,
+            padding: "0 0 20px",
+            borderBottom: "0.5px solid #111",
+          }}
+        >
+          {levels.map((l, i) => (
+            <div key={i}>
+              {i === firstShadowIdx && (
+                <div
+                  style={{
+                    width: "100%",
+                    textAlign: "center",
+                    fontFamily: "monospace",
+                    fontSize: 10,
+                    letterSpacing: 5,
+                    color: "#333",
+                    padding: "8px 0 6px",
+                    marginBottom: 2,
+                  }}
+                >
+                  — beyond the scoreboard —
+                </div>
+              )}
+              <NavButton
+                level={l}
+                isSelected={current === i}
+                onClick={() => setCurrent(i)}
+                isShadow={l.shadow}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Disclaimer for shadow tiers */}
+        {level.shadow && (
+          <div
+            style={{
+              fontFamily: "monospace",
+              fontSize: 11,
+              color: "#555",
+              background: "#0a0a0a",
+              borderRadius: 8,
+              padding: "12px 16px",
+              marginBottom: 20,
+              lineHeight: 1.7,
+              border: "0.5px solid #1a1a1a",
+            }}
+          >
+            <span style={{ color: "#888", fontWeight: 600 }}>
+              Editorial note:{" "}
+            </span>
+            {level.factNote}
+          </div>
+        )}
+
+        {/* Main Card */}
+        <div
+          style={{
+            borderRadius: 12,
+            padding: "28px 28px 24px",
+            border: `0.5px solid ${level.accentHex}33`,
+            background: "#0a0a0a",
+          }}
+        >
+          {/* Level header */}
+          <div style={{ marginBottom: 22 }}>
+            <div
+              style={{
+                fontFamily: "monospace",
+                fontSize: 11,
+                letterSpacing: 4,
+                color: level.accentHex,
+                textTransform: "uppercase",
+                marginBottom: 8,
+              }}
+            >
+              {level.shadow
+                ? `${level.shadowLabel} · ${level.percentile}`
+                : `Level ${level.id + 1} · ${level.percentile}`}
+            </div>
+            <div
+              style={{
+                fontSize: "clamp(22px, 4vw, 34px)",
+                fontWeight: 300,
+                color: "#F0E8D8",
+                letterSpacing: -0.5,
+              }}
+            >
+              {level.emoji} {level.name}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 10,
+                marginTop: 10,
+              }}
+            >
+              {[
+                ["Daily gain", level.amount, true],
+                ["Income", level.dailyIncome, false],
+                ["Net worth", level.networth, false],
+              ].map(([label, val, accent]) => (
+                <span
+                  key={label}
+                  style={{
+                    fontFamily: "monospace",
+                    fontSize: 12,
+                    padding: "4px 10px",
+                    borderRadius: 20,
+                    background: "#060608",
+                    border: "0.5px solid #1a1a1a",
+                    color: accent ? level.accentHex : "#666",
+                  }}
+                >
+                  {label}:{" "}
+                  <strong style={{ color: accent ? level.accentHex : "#888" }}>
+                    {val}
+                  </strong>
+                </span>
+              ))}
             </div>
           </div>
-        </div>
 
-        {/* Method */}
-        <div style={{
-          marginBottom: "24px",
-          padding: "24px",
-          background: "#0a0a0a",
-          border: `1px solid ${level.color}33`,
-          borderRadius: "10px",
-          borderLeft: `3px solid ${level.color}`,
-        }}>
-          <div style={{
-            fontSize: "10px",
-            letterSpacing: "4px",
-            color: level.color,
-            textTransform: "uppercase",
-            marginBottom: "10px",
-          }}>The Method</div>
-          <p style={{ margin: 0, lineHeight: "1.7", fontSize: "16px", color: "#D0C8B8" }}>
-            {level.method}
-          </p>
-        </div>
-
-        {/* Grid */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: "16px",
-          marginBottom: "24px",
-        }}>
-          {/* Pros */}
-          <div style={{
-            padding: "20px",
-            background: "#0a0a0a",
-            border: "1px solid #1a2a1a",
-            borderRadius: "10px",
-          }}>
-            <div style={{ fontSize: "10px", letterSpacing: "4px", color: "#4CAF50", textTransform: "uppercase", marginBottom: "12px" }}>Pros</div>
-            {level.pros.map((p, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginBottom: "8px" }}>
-                <span style={{ color: "#4CAF50", marginTop: "2px", fontSize: "12px" }}>▲</span>
-                <span style={{ fontSize: "14px", color: "#B0C8B0", lineHeight: "1.5" }}>{p}</span>
-              </div>
-            ))}
+          {/* Method */}
+          <div
+            style={{
+              fontFamily: "monospace",
+              fontSize: 10,
+              letterSpacing: 4,
+              color: level.accentHex,
+              textTransform: "uppercase",
+              marginBottom: 8,
+            }}
+          >
+            The Method
+          </div>
+          <div
+            style={{
+              background: "#060608",
+              borderRadius: 8,
+              padding: 18,
+              marginBottom: 18,
+              borderLeft: `3px solid ${level.accentHex}`,
+              border: `0.5px solid #1a1a1a`,
+              borderLeftWidth: 3,
+              borderLeftColor: level.accentHex,
+            }}
+          >
+            <p
+              style={{
+                fontSize: 15,
+                lineHeight: 1.75,
+                color: "#C8C0B0",
+                margin: 0,
+              }}
+            >
+              {level.method}
+            </p>
           </div>
 
-          {/* Cons */}
-          <div style={{
-            padding: "20px",
-            background: "#0a0a0a",
-            border: "1px solid #2a1a1a",
-            borderRadius: "10px",
-          }}>
-            <div style={{ fontSize: "10px", letterSpacing: "4px", color: "#F44336", textTransform: "uppercase", marginBottom: "12px" }}>Cons</div>
-            {level.cons.map((c, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginBottom: "8px" }}>
-                <span style={{ color: "#F44336", marginTop: "2px", fontSize: "12px" }}>▼</span>
-                <span style={{ fontSize: "14px", color: "#C8B0B0", lineHeight: "1.5" }}>{c}</span>
-              </div>
-            ))}
+          {/* Pros / Cons */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: 14,
+              marginBottom: 18,
+            }}
+          >
+            <ProConList items={level.pros} type="pros" />
+            <ProConList items={level.cons} type="cons" />
           </div>
 
-          {/* Professions */}
-          <div style={{
-            padding: "20px",
-            background: "#0a0a0a",
-            border: "1px solid #1a1a2a",
-            borderRadius: "10px",
-          }}>
-            <div style={{ fontSize: "10px", letterSpacing: "4px", color: "#7986CB", textTransform: "uppercase", marginBottom: "12px" }}>Typical Professions</div>
-            {level.professions.map((p, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "7px" }}>
-                <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#7986CB", flexShrink: 0 }}></span>
-                <span style={{ fontSize: "14px", color: "#B0B8C8" }}>{p}</span>
-              </div>
-            ))}
+          {/* Info grid */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: 14,
+              marginBottom: 18,
+            }}
+          >
+            <InfoBox
+              label="Professions"
+              content={level.professions}
+              accent={level.accentHex}
+            />
+            <InfoBox
+              label="Examples"
+              content={level.examples}
+              accent={level.accentHex}
+            />
           </div>
 
-          {/* Examples */}
-          <div style={{
-            padding: "20px",
-            background: "#0a0a0a",
-            border: "1px solid #2a2a1a",
-            borderRadius: "10px",
-          }}>
-            <div style={{ fontSize: "10px", letterSpacing: "4px", color: level.color, textTransform: "uppercase", marginBottom: "12px" }}>Real Examples</div>
-            {level.examples.map((e, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginBottom: "7px" }}>
-                <span style={{ color: level.color, fontSize: "12px", marginTop: "2px" }}>→</span>
-                <span style={{ fontSize: "14px", color: "#C8C8B0", lineHeight: "1.5" }}>{e}</span>
-              </div>
-            ))}
+          {/* Life */}
+          <div
+            style={{
+              fontFamily: "monospace",
+              fontSize: 10,
+              letterSpacing: 4,
+              color: "#444",
+              textTransform: "uppercase",
+              marginBottom: 8,
+            }}
+          >
+            Life at this level
           </div>
-        </div>
-
-        {/* Life */}
-        <div style={{
-          padding: "24px",
-          background: "#0a0a0a",
-          border: "1px solid #1a1a1a",
-          borderRadius: "10px",
-          borderBottom: `3px solid ${level.color}`,
-        }}>
-          <div style={{
-            fontSize: "10px",
-            letterSpacing: "4px",
-            color: "#888",
-            textTransform: "uppercase",
-            marginBottom: "10px",
-          }}>Life at This Level</div>
-          <p style={{ margin: 0, lineHeight: "1.8", fontSize: "15px", color: "#A0988A", fontStyle: "italic" }}>
+          <div
+            style={{
+              background: "#060608",
+              borderRadius: 8,
+              padding: "18px 20px",
+              borderLeft: `4px solid ${level.accentHex}`,
+              borderBottom: `2px solid ${level.accentHex}22`,
+              border: `0.5px solid #1a1a1a`,
+              borderLeftWidth: 4,
+              borderLeftColor: level.accentHex,
+              fontSize: 15,
+              fontStyle: "italic",
+              lineHeight: 1.8,
+              color: "#888",
+            }}
+          >
             "{level.life}"
-          </p>
-        </div>
-
-        {/* Navigation */}
-        <div style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "24px",
-        }}>
-          <button
-            onClick={() => setSelected(Math.max(0, selected - 1))}
-            disabled={selected === 0}
-            style={{
-              background: "transparent",
-              color: selected === 0 ? "#333" : "#888",
-              border: `1px solid ${selected === 0 ? "#222" : "#444"}`,
-              borderRadius: "6px",
-              padding: "10px 20px",
-              fontSize: "13px",
-              cursor: selected === 0 ? "default" : "pointer",
-              fontFamily: "Georgia, serif",
-            }}
-          >← Poorer</button>
-
-          <div style={{ textAlign: "center", color: "#444", fontSize: "12px", letterSpacing: "2px" }}>
-            {selected + 1} / {levels.length}
           </div>
 
-          <button
-            onClick={() => setSelected(Math.min(levels.length - 1, selected + 1))}
-            disabled={selected === levels.length - 1}
+          {/* Navigation */}
+          <div
             style={{
-              background: "transparent",
-              color: selected === levels.length - 1 ? "#333" : level.color,
-              border: `1px solid ${selected === levels.length - 1 ? "#222" : level.color}`,
-              borderRadius: "6px",
-              padding: "10px 20px",
-              fontSize: "13px",
-              cursor: selected === levels.length - 1 ? "default" : "pointer",
-              fontFamily: "Georgia, serif",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginTop: 28,
             }}
-          >Richer →</button>
+          >
+            <button
+              onClick={() => setCurrent(Math.max(0, current - 1))}
+              disabled={current === 0}
+              style={{
+                background: "transparent",
+                color: current === 0 ? "#222" : "#666",
+                border: `0.5px solid ${current === 0 ? "#1a1a1a" : "#333"}`,
+                borderRadius: 6,
+                padding: "9px 20px",
+                fontSize: 12,
+                cursor: current === 0 ? "default" : "pointer",
+                fontFamily: "monospace",
+              }}
+            >
+              ← Poorer
+            </button>
+            <span
+              style={{
+                fontFamily: "monospace",
+                fontSize: 11,
+                color: "#333",
+                letterSpacing: 3,
+              }}
+            >
+              {current + 1} / {levels.length}
+            </span>
+            <button
+              onClick={() =>
+                setCurrent(Math.min(levels.length - 1, current + 1))
+              }
+              disabled={current === levels.length - 1}
+              style={{
+                background: "transparent",
+                color:
+                  current === levels.length - 1 ? "#222" : level.accentHex,
+                border: `0.5px solid ${current === levels.length - 1 ? "#1a1a1a" : level.accentHex + "88"}`,
+                borderRadius: 6,
+                padding: "9px 20px",
+                fontSize: 12,
+                cursor: current === levels.length - 1 ? "default" : "pointer",
+                fontFamily: "monospace",
+              }}
+            >
+              {current >= 9 ? "Deeper →" : "Richer →"}
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div style={{
-        textAlign: "center",
-        padding: "20px",
-        color: "#333",
-        fontSize: "11px",
-        letterSpacing: "2px",
-        borderTop: "1px solid #111",
-      }}>
-        WEALTH IS RELATIVE · CONTEXT IS EVERYTHING
+        <div
+          style={{
+            textAlign: "center",
+            marginTop: 32,
+            fontFamily: "monospace",
+            fontSize: 10,
+            letterSpacing: 4,
+            color: "#222",
+          }}
+        >
+          WEALTH IS RELATIVE · POWER IS STRUCTURAL · TRUTH IS BORING
+        </div>
       </div>
     </div>
   );
